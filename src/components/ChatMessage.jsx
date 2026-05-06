@@ -2,8 +2,8 @@ import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/profile-1.jpg';
 import './ChatMessage.css';
 
-function ChatMessage({ message, sender}){
 
+function ChatMessage({ message, sender, sendTime }){
   return (
     <div className={
       sender === 'user' 
@@ -17,6 +17,7 @@ function ChatMessage({ message, sender}){
       }
       <div className="chat-message-text">
         {message}
+        <p className={`chat-message-send-time chat-message-send-time-${sender}`}>{sendTime}</p>
       </div>
       { sender === 'user' && 
       (

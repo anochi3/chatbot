@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Chatbot } from 'supersimpledev';
 import LoadingSpinner from '../assets/loading-spinner.gif';
-import './ChatInput.css'
+import './ChatInput.css';
+import dayjs from 'dayjs';
 
 export function ChatInput({chatMessages, setChatMessages }){
   const [ inputText, setInputText ] = useState('');
@@ -21,12 +22,15 @@ export function ChatInput({chatMessages, setChatMessages }){
   }
 
   async function sendMessage(){
+    let time = dayjs().valueOf();
+
     const newChatMessages = [
       ...chatMessages,
       {
         message: inputText,
         sender: 'user',
         id: crypto.randomUUID(),
+        sendTime: dayjs(time).format('h:mma')
       }
 
     ]
@@ -48,12 +52,15 @@ export function ChatInput({chatMessages, setChatMessages }){
 
     const response = await Chatbot.getResponseAsync(inputText);
 
+    time = dayjs().valueOf();
+
     setChatMessages([
       ...newChatMessages,
       {
         message: response,
         sender: 'robot',
         id: crypto.randomUUID(),
+        sendTime: dayjs(time).format('h:mma')
       }
 
     ]);

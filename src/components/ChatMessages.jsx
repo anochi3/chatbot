@@ -15,6 +15,7 @@ function ChatMessages({ chatMessages }) {
             <ChatMessage
               message={chatMessage.message}
               sender={chatMessage.sender}
+              sendTime={chatMessage.sendTime}
               key={chatMessage.id}
             />
           );
