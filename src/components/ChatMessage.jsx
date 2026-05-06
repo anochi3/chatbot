@@ -17,7 +17,7 @@ function ChatMessage({ message, sender, sendTime }){
       }
       <div className="chat-message-text">
         {message}
-        <p className={`chat-message-send-time chat-message-send-time-${sender}`}>{sendTime}</p>
+        <p className="chat-message-send-time">{sendTime}</p>
       </div>
       { sender === 'user' && 
       (
