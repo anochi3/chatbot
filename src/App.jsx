@@ -12,7 +12,10 @@ function App(){
     Chatbot.addResponses(
       {
         'What can you do?' : "I only know how to flip a coin, roll a dice, or get today's date.",
-        'ok' : 'Let me know if you need help with anything else!'
+        'ok' : 'Let me know if you need help with anything else!',
+        'hi' : 'Hi! How can I help you?',
+        'hey' : 'Hey! How can I help you?',
+        'bye' : 'Bye! Let me know if you need help with anything else!'
       }
     )
   },[])
